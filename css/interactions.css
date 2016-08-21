@@ -1,0 +1,120 @@
+/* =================================
+  SECTION 1 - Button Transitions
+==================================== */
+
+.button {
+	color: #fff;
+	background: #4a89ca;
+	transition-duration: .4s;
+	transition-property: background;
+}
+.button:hover {
+	background: #d36a62;
+}
+.button:active {
+	background: #a33830;
+}
+
+/* ---------------------------------
+  SECTION 1 - Photo Overlay Transitions
+------------------------------------ */
+
+.photo-overlay {
+  opacity: 0;
+  color: white;
+  transition: all 0.8s;
+}
+.photo-overlay:hover {
+  background: #333;
+  opacity: 0.95;
+  color: ghostwhite;
+}
+
+/* =================================
+  SECTION 2 - Photo Overlay Transition
+==================================== */
+
+.section-2-overlay {
+	opacity: 0;
+  transition: opacity .3s, background .4s, box-shadow .5s; /* Key - transition: <property><duraction><timing-function><delay>, opacity .5s ease-out .25s (this order is the best practice) */
+  /* OR transition-timing-function: ease-out; (helps set all property's timing function) */
+  /* Note: transition: opacity .5s; */
+  /* Note: transition: all .5s; Is the same as transition: .5s; (all is by default) */
+}
+.section-2-overlay:hover {
+	opacity: .95;
+  background: #333;
+}
+
+/* ---------------------------------
+  SECTION 2 - Button Transitions
+------------------------------------ */
+
+.section-2-button {
+	opacity: 0;
+	transition-property: opacity, background, box-shadow;
+	transition-duration: .5s;
+	transition-delay: .2s, .3s, 0s;
+}
+.section-2-button:hover {
+	background: rgba(74, 137, 202, 1);
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+}
+.section-2-overlay:hover .section-2-button {
+	opacity: 1;
+}
+.btn-icon {
+	transition-property: opacity, left;
+	transition-duration: .5s;
+	transition-delay: .3s /* refers to opacity */, .5s /* refers to left */;
+	transition-timing-function: ease-in-out /* refers to opacity */, ease-out /* refers to left */;
+}
+.section-2-button:hover .btn-icon {
+	opacity: 1;
+	left: 80%;
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+SECTION 2 - Base Styles
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+.section-2-button {
+	color: #fff;
+	width: 75%;
+	font-weight: 700;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	background: rgba(74,137,202, .65);
+	padding: 22px 0;
+	border-radius: .5em;
+	margin: 0;
+	position: relative;
+}
+.btn-icon {
+	opacity: 0;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url('../img/download.svg');
+	position: absolute;
+	left: 45%;
+	top: 27%;
+}
+
+/* ---- Photo Overlay ---- */
+.section-2-overlay {
+	color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0, .65);
+}

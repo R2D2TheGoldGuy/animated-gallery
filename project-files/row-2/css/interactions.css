@@ -1,0 +1,47 @@
+/* ================================= 
+  Photo Overlay Transition
+==================================== */
+
+.photo-overlay {
+	opacity: 0;
+  transition: opacity .3s, background .4s, box-shadow .5s; /* Key - transition: <property><duraction><timing-function><delay>, opacity .5s ease-out .25s (this order is the best practice) */
+  /* OR transition-timing-function: ease-out; (helps set all property's timing function) */
+  /* Note: transition: opacity .5s; */
+  /* Note: transition: all .5s; Is the same as transition: .5s; (all is by default) */
+}
+.photo-overlay:hover {
+	opacity: .95;
+  background: #333;
+}
+
+/* ================================= 
+  Button Transitions
+==================================== */
+
+.button {
+	opacity: 0;
+	transition-property: opacity, background, box-shadow;
+	transition-duration: .5s;
+	transition-delay: .2s, .3s, 0s;
+}
+
+.button:hover {
+	background: rgba(74, 137, 202, 1);
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+}
+
+.photo-overlay:hover .button {
+	opacity: 1;
+}
+
+.btn-icon {
+	transition-property: opacity, left;
+	transition-duration: .5s;
+	transition-delay: .3s /* refers to opacity */, .5s /* refers to left */;
+	transition-timing-function: ease-in-out /* refers to opacity */, ease-out /* refers to left */;
+}
+
+.button:hover .btn-icon {
+	opacity: 1;
+	left: 80%;
+}

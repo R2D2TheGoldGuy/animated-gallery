@@ -1,0 +1,38 @@
+/* ================================= 
+  Button Transitions
+==================================== */
+
+.button {
+	transition: background .3s;
+}
+.button:hover {
+	background: rgba(74,137,202, 1);
+}
+
+/* ================================= 
+  Photo 3D Transforms & Transitions
+==================================== */
+
+.photo-container /* .content { */ { /* giving a perspective to every photo to its container will individually have the same perspective like the one in the middle photo, all 3 photos are now consistent with each other */
+  perspective: 1000px; /* Similar to the flex container, wrap this elements to make it 3d compatible */
+  /* perspective-origin: y x; */ /* sets the perspective from a different angle, 50% 50% makes it centered by default. */
+}
+
+.photo { /* photo is the parent of side-a and side-b */
+  transition: transform 1.2s cubic-bezier(.55, -.62, .27, 1.2);
+  transform-style: preserve-3d; /* Makes .photo child elements 3d compatible. It will pass down 3d attributes to its children. */
+}
+
+.photo:hover {
+  /* transform: rotateY(-180deg); */
+  transform: rotate3d(0, 1, 0, 180deg); /* rotate(x, y, z, <angle> */
+}
+
+.side-a,
+.side-b {
+  backface-visibility: hidden;
+}
+
+.side-b {
+  transform: rotateY(180deg);
+}
