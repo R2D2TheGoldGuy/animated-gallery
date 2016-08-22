@@ -121,3 +121,244 @@ SECTION 2 - Base Styles
 .section-2-overlay h3 {
 	margin-top: 0em;
 }
+
+/* =================================
+  SECTION 3 - Base Styles
+==================================== */
+
+.section-3-original-pos {
+/*	background-color: lightgrey;*/
+	height: 100%;
+	display: block;
+	line-height: 0;
+}
+
+.section-3-photo {
+	position: relative;
+	line-height: 0;
+	margin-bottom: 2em;
+	overflow: hidden;
+}
+
+.section-3-button {
+	color: #4a89ca;
+	width: 70%;
+	font-weight: 700;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 10px 0;
+	border: 2px solid #4a89ca;
+	border-radius: .5em;
+	margin: auto;
+}
+
+/* ---- Photo Overlay ---- */
+.section-3-overlay {
+	color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	display: flex; /* For centering text inside .photo-overlay */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0, .5);
+}
+.section-3-overlay h3 {
+	margin-top: 0;
+}
+.section-3-slide .section-3-button {
+	color: #fff;
+	padding: 20px 0;
+	background: rgba(74,137,202, .8);
+	margin: 0;
+}
+.section-3-slide .section-3-overlay {
+	opacity: 1;
+	background: #345d88;
+}
+
+/* ---------------------------------
+  Photo Overlay Transitions
+------------------------------------ */
+
+.section-3-overlay {
+	opacity: 0;
+	transition: opacity .5s;
+}
+.section-3-overlay:hover {
+	opacity: 1;
+}
+
+/* ---------------------------------
+  Button Transitions
+------------------------------------ */
+
+.section-3-button {
+	transition: background .3s, color .3s;
+}
+.section-3-button:hover {
+	color: #fff;
+	background: #4a89ca;
+}
+
+/* ---------------------------------
+  Image Transforms & Transitions
+------------------------------------ */
+
+/* -- Row 4 --------- */
+img[class="section-3-img"] {
+  transition: transform .5s;
+}
+img[class="section-3-img"]:hover {
+  transform: rotate(-5deg);
+}
+
+/* -- Row 5 --------- */
+.section-3-photo img[class="section-3-img"] {
+  transform-origin: 0 0;
+}
+.section-3-photo:hover img[class="section-3-img"] {
+  transform: scale(1.2);
+}
+
+/* -- Row 6 --------- */
+.section-3-slide .section-3-overlay,
+.section-3-slide img[class="section-3-img"] {
+  transition: transform .6s ease-out;
+}
+.section-3-slide .section-3-overlay {
+  transform: translateX(-100%);
+}
+.section-3-slide:hover .section-3-overlay {
+  transform: translateX(0);
+}
+.section-3-slide:hover img[class="section-3-img"] {
+  transform: translateX(100%);
+}
+
+/* =================================
+  SECTION 4 - Base Styles
+==================================== */
+
+
+/* =================================
+  SECTION 5 - Base Styles
+==================================== */
+
+.cube-container {
+	max-width: 200px;
+	text-align: center;
+	margin: 0 auto 4.5em;
+}
+
+/* ---- Photo Overlay ---- */
+.section-5-photo-desc {
+	font-size: .85em;
+	color: #fff;
+	padding: 1.1em 1em 0;
+	background: #345d88;
+}
+
+/* =================================
+  Button Transitions
+==================================== */
+
+.section-5-button {
+	font-size: .8em;
+	color: #fff;
+	width: 90%;
+	line-height: 1.15;
+	font-weight: 700;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: .95em 0;
+	border-radius: .5em;
+	background: rgba(74,137,202, .8);
+	margin: auto;
+}
+
+.section-5-button {
+	transition: background .3s;
+}
+.section-5-button:hover {
+	background: rgba(74,137,202, 1);
+}
+
+/* =================================
+  Photo 3D Transforms & Transitions
+==================================== */
+
+.cube-container {
+	box-shadow: 0 18px 40px 5px rgba(0,0,0,.4);
+  perspective: 800px;
+}
+
+.photo-cube { /* Horizontal Rolling Cube */
+  transition: transform 2s ease-in-out;
+  width: 220px;
+  height: 200px;
+  transform-style: preserve-3d; /* Setting the child elements of .photo-cube to inherit 3d effects */
+}
+
+/* ---------------------------------
+  Horizontal Rolling Cube
+------------------------------------ */
+
+.photo-cube:hover { /* HORIZONTAL ROLLING CUBE */
+  transform: rotateY(-270deg);
+}
+.front,
+.back,
+.left,
+.right {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+}
+.front {
+  /*transform: translateZ(110px);*/ /* translateX(), translateY(), translateZ() can all be represented by a shorthand using translate3d(x, y, z) the x,y,z refers to translate axis. */
+  transform: translate3d(0, 0, 110px); /* x=0, y=0, z=110px */
+}
+.back {
+  transform: translateZ(-110px) rotateY(270deg);
+  transform-origin: center left;
+}
+.left {
+  transform: rotateY(-270deg) translate3d(110px /* x for 110px */, 0, 0);
+  transform-origin: top right;
+}
+.right {
+  transform: translateZ(-110px) rotateY(180deg);
+}
+
+/* ---------------------------------
+  Responsive Cubes
+------------------------------------ */
+
+@media screen and (min-width: 769px) {
+	.cube-container {
+		float: left;
+		margin-left: 16.6%;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.cube-container:first-child {
+		margin-left: 0;
+	}
+	.cube-container:last-child{
+		float: right;
+	}
+	.cube-content {
+		max-width: 900px;
+		margin: auto;
+	}
+}
